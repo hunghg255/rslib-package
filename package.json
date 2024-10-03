@@ -1,0 +1,50 @@
+{
+  "name": "rslib-package",
+  "version": "0.0.1",
+  "private": false,
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "import": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
+    }
+  },
+  "scripts": {
+    "build": "rslib build",
+    "dev": "rslib build --watch",
+    "lint": "eslint .",
+    "verify-commit": "verify-commit-msg",
+    "prepare": "git-scm-hooks"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.11.1",
+    "@rslib/core": "^0.0.8",
+    "eslint": "^9.11.1",
+    "globals": "^15.10.0",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.8.0",
+    "git-scm-hooks": "^0.0.7",
+    "verify-commit-msg": "^0.0.10"
+  },
+  "packageManager": "pnpm@8.15.9",
+  "git-hooks": {
+    "pre-commit": "npm run lint",
+    "commit-msg": "npm run verify-commit"
+  },
+  "keywords": [],
+  "homepage": "https://github.com/hunghg255/rslib-package",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunghg255/rslib-package"
+  },
+  "bugs": {
+    "url": "https://github.com/hunghg255/rslib-package/issues"
+  }
+}
