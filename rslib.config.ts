@@ -11,12 +11,13 @@ export default defineConfig({
     {
       ...shared,
       format: 'esm',
-      syntax: "es5",
+      syntax: 'es5',
       output: {
         distPath: {
           root: './dist/esm',
         },
       },
+      autoExternal: true,
     },
     {
       ...shared,
@@ -26,9 +27,10 @@ export default defineConfig({
           root: './dist/cjs',
         },
       },
+      autoExternal: true,
     },
   ],
   output: {
-    target: "node",
+    target: 'node',
   },
 });

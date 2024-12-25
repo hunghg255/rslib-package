@@ -1,50 +1,62 @@
 {
-  "name": "rslib-package",
-  "version": "0.0.1",
+  "name": "hung-pkg-test",
+  "type": "module",
+  "version": "0.0.5",
   "private": false,
+  "packageManager": "pnpm@8.15.9",
+  "license": "MIT",
+  "homepage": "https://github.com/hunghg255/rslib-package",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hunghg255/rslib-package.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hunghg255/rslib-package/issues"
+  },
+  "keywords": [],
   "sideEffects": false,
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./dist/cjs/index.cjs",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
   "exports": {
-    "import": {
-      "types": "./dist/index.d.ts",
-      "default": "./dist/index.mjs"
-    },
     "require": {
-      "types": "./dist/index.d.cts",
-      "default": "./dist/index.cjs"
+      "types": "./dist/cjs/index.d.cts",
+      "default": "./dist/cjs/index.cjs"
+    },
+    "import": {
+      "types": "./dist/esm/index.d.ts",
+      "default": "./dist/esm/index.js"
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "rslib build",
     "dev": "rslib build --watch",
     "lint": "eslint .",
+    "check": "prettier --check .",
+    "fix": "eslint --fix . && prettier --write .",
     "verify-commit": "verify-commit-msg",
     "prepare": "git-scm-hooks"
   },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21"
+  },
   "devDependencies": {
-    "@eslint/js": "^9.11.1",
-    "@rslib/core": "^0.0.8",
-    "eslint": "^9.11.1",
-    "globals": "^15.10.0",
+    "@hunghg255/eslint-config": "^0.0.3",
+    "@rslib/core": "^0.2.0",
+    "@types/lodash": "^4.17.10",
+    "eslint": "^9.17.0",
+    "git-scm-hooks": "^0.0.7",
+    "prettier": "^3.4.2",
     "typescript": "^5.6.2",
     "typescript-eslint": "^8.8.0",
-    "git-scm-hooks": "^0.0.7",
     "verify-commit-msg": "^0.0.10"
   },
-  "packageManager": "pnpm@8.15.9",
   "git-hooks": {
     "pre-commit": "npm run lint",
     "commit-msg": "npm run verify-commit"
-  },
-  "keywords": [],
-  "homepage": "https://github.com/hunghg255/rslib-package",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/hunghg255/rslib-package"
-  },
-  "bugs": {
-    "url": "https://github.com/hunghg255/rslib-package/issues"
   }
 }
